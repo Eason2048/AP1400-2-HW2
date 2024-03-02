@@ -4,9 +4,11 @@ project(AP)
 set(CMAKE_CXX_STANDARD 20)
 
 find_package(OpenSSL REQUIRED)
+set(GTest_ROOT /opt/homebrew/opt/googletest)
 find_package(GTest REQUIRED)
 
 include_directories(include/)
+include_directories(/opt/homebrew/opt/googletest/include /opt/homebrew/opt/googletest)
 
 add_executable(main
         src/main.cpp
@@ -17,6 +19,6 @@ add_executable(main
 )
 target_link_libraries(main
         OpenSSL::SSL
-        GTest::GTest
-        GTest::Main
+        /opt/homebrew/opt/googletest/lib/libgtest.a
+        /opt/homebrew/opt/googletest/lib/libgtest_main.a
 )
